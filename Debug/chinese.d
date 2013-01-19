@@ -1,0 +1,1 @@
+chinese.d: ../chinese.c
