@@ -1,5 +1,5 @@
 ################################################################################
-# Automatically-generated file. Do not edit!
+# 自动生成的文件。不要编辑！
 ################################################################################
 
 -include ../makefile.init
@@ -30,13 +30,13 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 LSS += \
-lcd_adxl345_spi.lss \
+spi_nokia5110lcd.lss \
 
 FLASH_IMAGE += \
-lcd_adxl345_spi.hex \
+spi_nokia5110lcd.hex \
 
 EEPROM_IMAGE += \
-lcd_adxl345_spi.eep \
+spi_nokia5110lcd.eep \
 
 SIZEDUMMY += \
 sizedummy \
@@ -45,50 +45,50 @@ AVRDUDEDUMMY += \
 avrdudedummy \
 
 
-# All Target
-all: lcd_adxl345_spi.elf secondary-outputs
+# 所有目标
+all: spi_nokia5110lcd.elf secondary-outputs
 
-# Tool invocations
-lcd_adxl345_spi.elf: $(OBJS) $(USER_OBJS)
-	@echo 'Building target: $@'
-	@echo 'Invoking: AVR C Linker'
-	avr-gcc -Wl,-Map,lcd_adxl345_spi.map -mmcu=atmega8 -o "lcd_adxl345_spi.elf" $(OBJS) $(USER_OBJS) $(LIBS)
-	@echo 'Finished building target: $@'
+# 工具调用
+spi_nokia5110lcd.elf: $(OBJS) $(USER_OBJS)
+	@echo '正在构建目标： $@'
+	@echo '正在调用： AVR C Linker'
+	avr-gcc -Wl,-Map,spi_nokia5110lcd.map -mmcu=atmega8 -o "spi_nokia5110lcd.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo '已结束构建目标： $@'
 	@echo ' '
 
-lcd_adxl345_spi.lss: lcd_adxl345_spi.elf
-	@echo 'Invoking: AVR Create Extended Listing'
-	-avr-objdump -h -S lcd_adxl345_spi.elf  >"lcd_adxl345_spi.lss"
-	@echo 'Finished building: $@'
+spi_nokia5110lcd.lss: spi_nokia5110lcd.elf
+	@echo '正在调用： AVR Create Extended Listing'
+	-avr-objdump -h -S spi_nokia5110lcd.elf  >"spi_nokia5110lcd.lss"
+	@echo '已结束构建： $@'
 	@echo ' '
 
-lcd_adxl345_spi.hex: lcd_adxl345_spi.elf
+spi_nokia5110lcd.hex: spi_nokia5110lcd.elf
 	@echo 'Create Flash image (ihex format)'
-	-avr-objcopy -R .eeprom -O ihex lcd_adxl345_spi.elf  "lcd_adxl345_spi.hex"
-	@echo 'Finished building: $@'
+	-avr-objcopy -R .eeprom -O ihex spi_nokia5110lcd.elf  "spi_nokia5110lcd.hex"
+	@echo '已结束构建： $@'
 	@echo ' '
 
-lcd_adxl345_spi.eep: lcd_adxl345_spi.elf
+spi_nokia5110lcd.eep: spi_nokia5110lcd.elf
 	@echo 'Create eeprom image (ihex format)'
-	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex lcd_adxl345_spi.elf  "lcd_adxl345_spi.eep"
-	@echo 'Finished building: $@'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex spi_nokia5110lcd.elf  "spi_nokia5110lcd.eep"
+	@echo '已结束构建： $@'
 	@echo ' '
 
-sizedummy: lcd_adxl345_spi.elf
-	@echo 'Invoking: Print Size'
-	-avr-size --format=berkeley -t lcd_adxl345_spi.elf
-	@echo 'Finished building: $@'
+sizedummy: spi_nokia5110lcd.elf
+	@echo '正在调用： Print Size'
+	-avr-size --format=avr --mcu=atmega8 spi_nokia5110lcd.elf
+	@echo '已结束构建： $@'
 	@echo ' '
 
-avrdudedummy: lcd_adxl345_spi.elf
-	@echo 'Invoking: AVRDude'
-	/usr/bin/avrdude -pm8 -cusbasp -PttyUSB0 -b115200 -B500 -i500 -Uflash:w:lcd_adxl345_spi.hex:a
-	@echo 'Finished building: $@'
+avrdudedummy: spi_nokia5110lcd.elf
+	@echo '正在调用： AVRDude'
+	/usr/bin/avrdude -pm8 -cusbasp -B500 -i500 -Uflash:w:spi_nokia5110lcd.hex:a
+	@echo '已结束构建： $@'
 	@echo ' '
 
-# Other Targets
+# 其他目标
 clean:
-	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) lcd_adxl345_spi.elf
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(AVRDUDEDUMMY)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) spi_nokia5110lcd.elf
 	-@echo ' '
 
 secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY) $(AVRDUDEDUMMY)
