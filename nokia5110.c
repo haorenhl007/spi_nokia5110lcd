@@ -104,4 +104,14 @@ void nokia5110_clear(void)
 	}
 	nokia5110_mv(0, 0);
 }
-
+/**
+ * 简单画点
+ * @param y y还是以8个像素为一行的行
+ * @param x x则是1个像素一列
+ */
+void nokia5110_drawpix(unsigned char y,unsigned char x)
+{
+	nokia5110_send1byte(NOKIA5110_CMD, x|NOKIA5110_SET_RAMADDR_X);     //X
+	nokia5110_send1byte(NOKIA5110_CMD, y|NOKIA5110_SET_RAMADDR_Y);     //Y
+	nokia5110_send1byte(NOKIA5110_DATA, 0b00000001);
+}

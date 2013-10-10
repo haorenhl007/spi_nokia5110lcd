@@ -39,4 +39,5 @@ extern void nokia5110_clear(void);
 extern void nokia5110_mvprint(unsigned char y, unsigned char x, char *str);
 extern void nokia5110_mv(unsigned char y, unsigned char x);
 extern void nokia5110_print(char * string);
+extern void nokia5110_drawpix(unsigned char y,unsigned char x);//待完善
 #endif
