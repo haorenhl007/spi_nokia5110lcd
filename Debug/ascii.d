@@ -1,1 +1,0 @@
-ascii.d: ../ascii.c
