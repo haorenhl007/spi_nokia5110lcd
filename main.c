@@ -16,25 +16,35 @@
  */
 int main(void)
 {
-	nokia5110_init();
-#if 1
+	n5_init();
+#if 0
 	char str[]=" ";
 	int i;
 	for(i=' ';i<='z'+1;i++){
-		nokia5110_print(str);
+		n5_print(str);
 		str[0]++;
 		_delay_ms(10);
 	}
-	nokia5110_mvprint(0,0,"hello,world! ");
+	n5_mvprint(0,0,"hello,world");
+#endif
+#if 1
+	int i=0;
+	_delay_ms(500);
+	while(1){
+		n5_drawpix(i++,1);
+		_delay_ms(500);
+	}
+	//n5_drawpix(0,2);
+	//n5_drawpix(0,3);
+	//n5_drawpix(1,4);
+	//n5_drawpix(2,5);
+	//n5_drawpix(2,6);
+	//n5_drawpix(3,7);
 #endif
 #if 0
-	nokia5110_drawpix(0,1);
-	nokia5110_drawpix(0,2);
-	nokia5110_drawpix(0,3);
-	nokia5110_drawpix(1,4);
-	nokia5110_drawpix(2,5);
-	nokia5110_drawpix(2,6);
-	nokia5110_drawpix(3,7);
+	n5_mvprint(0,0,"hello,world");
+	_delay_ms(500);
+	n5_mvprint(1,0," hello,world");
 #endif
 	while (1) {
 		;

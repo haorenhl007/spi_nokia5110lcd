@@ -12,9 +12,16 @@
 #define NOKIA5110_SET_RAMADDR_Y (0b01000000)
 #define NOKIA5110_SET_RAMADDR_X (0b10000000)
 #define NOKIA5100_SET_Vop 	(0b10000000)
+#define FUNC_SET (0b00100000) //功能设置
+#define PD (1<<2)
+#define V (1<<1)
+#define H (1<<0)
+#define DISPLAY_CONF (0b00001000) //显示模式配置
+#define D (1<<2)
+#define E (1<<0)
 #define NOKIA5100_BASE_instruction 	(0x20) //基础指令集
 #define NOKIA5100_EX_instruction 	(0x21) //扩展指令级
-#define NOKIA5110_NOMAL_MODE 	(0x0c) //普通模式
+#define NOKIA5110_NOMAL_MODE 	(0b00001100) //普通模式
 // *****  端口设定 ******
 // D/-C date/command 数据还是命令选择端口 高电平=Data 低电平=Commamd
 #define DDR_DC DDRB
@@ -33,11 +40,13 @@
 // Vcc: 电源
 // Gnd:地
 // BL:背光 高电瓶亮,低电平瓶没,就这样
-
-extern void nokia5110_init(void);
-extern void nokia5110_clear(void);
-extern void nokia5110_mvprint(unsigned char y, unsigned char x, char *str);
-extern void nokia5110_mv(unsigned char y, unsigned char x);
-extern void nokia5110_print(char * string);
-extern void nokia5110_drawpix(unsigned char y,unsigned char x);//待完善
+#define DDR_CS DDRB
+#define PORT_CS PORTB
+#define PIN_CS PB0
+extern void n5_init(void);
+extern void n5_clear(void);
+extern void n5_mvprint(unsigned char y, unsigned char x, char *str);
+extern void n5_mv(unsigned char y, unsigned char x);
+extern void n5_print(char * string);
+extern void n5_drawpix(unsigned char y,unsigned char x);//待完善
 #endif
